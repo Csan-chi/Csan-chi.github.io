@@ -101,7 +101,102 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="git的下载与初始配置"><a href="#git的下载与初始配置" class="headerlink" title="git的下载与初始配置"></a>git的下载与初始配置</h1><p>因为Git是分布式版本控制系统，所以每个分支都要有自己的名字和邮箱</p>
+<p><code>git config</code>：使用git命令<br><code>global</code>一个参数，使用这个参数后表示我这个分支所有的仓库都会使用这个配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Csan_chi&quot;</span><br><span class="line">$ git config --global user.email &quot;XXXXXX&quot;</span><br></pre></td></tr></table></figure>
+<p>上述代码就是代表我的所有仓库都使用Csan_chi这个名字，使用上述的邮箱</p>
+<p>可以使用 <code>git config --list</code>来查看所有的配置信息<br>当然也可以单独查看个别信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name </span><br></pre></td></tr></table></figure>
+<h1 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h1><p><strong>一般工作流程如下：</strong></p>
+<ol>
+<li>克隆Git资源作为工作目录；</li>
+<li>在克隆的资源上添加或修改文件；</li>
+<li>如果其他人更改，你可以更新资源；</li>
+<li>在提交前查看修改状态；</li>
+<li>提交修改；</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ol>
+<p><code>git --global credential.helper store</code>这个指令可以用来保存用户名和密码</p>
+<h1 id="创建git仓库"><a href="#创建git仓库" class="headerlink" title="创建git仓库"></a>创建git仓库</h1><p>版本库，简称Repo，可以把版本库理解为一个一个目录，这个目录里的所有文件都可以被git管理，每个文件的修改操作都可以被git跟踪，以便追踪历史和更改版本</p>
+<p>首先创建一个空目录<br>使用命令<code>mkdir &quot;dirname&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">86@Sanchi-Artifact MINGW64 /</span><br><span class="line">$ mkdir learn-git</span><br><span class="line"></span><br><span class="line">86@Sanchi-Artifact MINGW64 /</span><br><span class="line">$ cd learn-git</span><br></pre></td></tr></table></figure>
+<p>然后使用<code>git init</code>就可以在这个新建的文件夹中创建一个仓库了，在这个仓库中会有一个.git的目录，.git目录就存放着git仓库的所有数据，</p>
+<p>这里还可以用<code>git init “文件名”</code>来创建仓库，这里创建的新仓库，会在空目录的里面</p>
+<p>需要注意的是，.git目录是一个隐藏的目录</p>
+<p>还可以使用<code>git clone</code>命令从github或gitee这种远程服务器来克隆一个已经存在的仓库</p>
+<h1 id="git的工作区域和文件状态"><a href="#git的工作区域和文件状态" class="headerlink" title="git的工作区域和文件状态"></a>git的工作区域和文件状态</h1><p>git的本地数据管理分为三个区域<br>工作区、暂存区和版本库</p>
+<ul>
+<li><p>工作区（work directory）：<br>就是本地电脑上.git所在的目录</p>
+</li>
+<li><p>暂存区（staging area&#x2F;index）：<br>它像个缓存区域，临时保存即将上传到git仓库的改动</p>
+</li>
+<li><p>版本库，也可以叫本地仓库：<br>就是刚才使用<code>git init</code>创建的仓库，包含完整的项目数据和版本信息，是git存储代码和版本信息的主要位置</p>
+</li>
+</ul>
+<p>当你修改完工作区的文件后需要将它们添加到暂存区，然后再将暂存区的修改内容提交到本地仓库中</p>
+<p>这个过程中可以使用命令来查看，提交，修改内容，以确保内容的完整与正确</p>
+<p>做比喻的话，工作区就是一个生产车间，用来生产文件代码，暂存区就是一个运输工具，用来把工作区生产的内容存储到版本库中，而版本库就是一个仓库，用来存储工作区生产的内容。</p>
+<p>当代码完成了一个阶段想备份的时候，就可以把这个版本放到本地仓库中保存，这个保存的过程就是提交（commit）<br>但是如果文件修改一次就要提交一次比较麻烦，所以git提供可以先把修改后的文件存储到暂存区中，然后把暂存区中的文件进行统一提交</p>
+<p>相应的，git中的文件也存在几种状态：<br>分别是：</p>
+<ul>
+<li>未跟踪（Untrack）：新创建还没有被git管理的文件</li>
+<li>未修改（Unmodifiled）：已经被git管理但还没有修改过的文件</li>
+<li>已修改（Modifiled）：已经修改过但还没有添加到暂存区中的文件</li>
+<li>已暂存（Staged）：修改后并添加到暂存区中的文件</li>
+</ul>
+<h1 id="添加和提交文件"><a href="#添加和提交文件" class="headerlink" title="添加和提交文件"></a>添加和提交文件</h1><p><code>git status</code>：查看仓库的状态<br><code>git add</code>：添加到暂存区<br><code>git commit</code>：提交</p>
+<p>git commit命令只会提交暂存区中的文件</p>
+<ul>
+<li><p>这里工作区有一个test.txt文件，使用<code>git status</code>命令查看仓库状态，红色就代表是未跟踪的状态。</p>
+</li>
+<li><p>使用<code>git add test.txt</code>把test.txt添加到暂存区中，文件就变成了绿色。</p>
+<p>  这里绿色上方 (use “git rm –cached <file>…” to unstage)是一个提示，意思是可以使用git rm –cached <file>这个命令来把刚才存入暂存区的文件取出</p>
+</li>
+<li><p><code>git add</code>命令可以使用通配符来一次性添加多个文件，<br>也可以直接将一整个文件夹的所有文件添加到暂存区中</p>
+<p>  例如：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add *.txt</span><br><span class="line">- 这样就是把所有以.txt为后缀的文件添加到暂存区中</span><br><span class="line">git add .</span><br><span class="line">- 这样就是把当前目录下的所有文件添加到暂存区中</span><br></pre></td></tr></table></figure></li>
+<li><p>git commit 命令将暂存区内容添加到本地仓库中<br>注意，使用<code>git commit</code>命令提交文件时要在后面加上-m的参数，就像这样</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;第一次提交&quot;</span><br></pre></td></tr></table></figure>
+<p>  这里-m后的信息就像是一个备注，会随着文件一同存入仓库中</p>
+</li>
+<li><p>可以使用<code>git log</code>命令来查看提交记录</p>
+</li>
+</ul>
+<p>这里commit后的字符串是提交id，每次的提交id都是不同的，然后提交记录里还会有作者名字和邮箱，提交的时间和注释等</p>
+<ul>
+<li><code>git log</code>命令后也可以添加一些参数，像–oneline，可以查看简洁的提交记录</li>
+</ul>
+<h1 id="回退版本（撤销命令）"><a href="#回退版本（撤销命令）" class="headerlink" title="回退版本（撤销命令）"></a>回退版本（撤销命令）</h1><p><code>git reset</code>命令用于回退版本，可以回退到之前某一个提交的状态</p>
+<p>这个命令有三个参数，参数后加上要回退的版本id就可以回退到之前的那个版本</p>
+<p>–soft参数会回退到之前的某一个版本，并且保留工作区和暂存区的所有修改内容<br>–hard参数会回退到之前的某一个版本，并且丢弃工作区和暂存区的所有修改内容<br>–mixed参数会回退到之前的某一个版本，并且保留工作区的所有修改内容但是丢弃暂存区的修改内容。</p>
+<p>mixed是git reset命令的默认参数</p>
+<h1 id="git-reflog命令"><a href="#git-reflog命令" class="headerlink" title="git reflog命令"></a>git reflog命令</h1><p>git reflog命令可以查看操作历史记录，然后可以通过获得历史记录的id使用回退版本还回退到某一版本</p>
+<p>前面黄色的字母就是id</p>
+<h1 id="git-diff命令"><a href="#git-diff命令" class="headerlink" title="git diff命令"></a>git diff命令</h1><p>git diff命令的作用</p>
+<p>如果不加参数，git diff命令默认比较工作区和暂存区的内容，会显示发生更改的文件和更改的具体信息</p>
+<p>命令下第一行是文件名，第二行是文件生成的哈希值，红色的是被删除的内容，绿色的是新添加的内容<br>上述显示的就是工作区与暂存区的对比，如果把工作区的内容添加到暂存区中就不会有这些内容了</p>
+<p>HEAD参数，比较工作区和版本库的关系<br><code>git diff HEAD</code></p>
+<p>–cached参数，比较暂存区和工作区的差异</p>
+<p>git diff还可以比较两个版本之间的差异<br>用法就是在命令后加上两个版本的id就行了</p>
+<p><code>git diff id1 id2</code></p>
+<p>HEAD可以代表最新版本的id，它指向分支提交的最新节点<br>HEAD<del>和HEAD^就表示最新版本的上一个版本<br>HEAD</del>2就表示最新版之前的两个版本</p>
+<p>可以在HEAD或id参数后添加文件名，这样就是比较单独文件的差异</p>
+<h1 id="git-rm（从版本库中删除文件）"><a href="#git-rm（从版本库中删除文件）" class="headerlink" title="git rm（从版本库中删除文件）"></a>git rm（从版本库中删除文件）</h1><p>从版本库中删除文件可以先把本地要删除的文件删除，然后再使用<code>git add .</code>，git commit命令提交到版本库，这样版本库中就没有该文件了，</p>
+<p>流程就是：<br>1.删除工作区的文件<br>2.执行<code>git add.</code><br>3.执行<code>git commit</code></p>
+<p>此外，还可以使用<code>git rm</code>命令直接删除工作区和暂存区中的文件，再执行提交命令就可以从版本库中删除文件</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm test.txt</span><br><span class="line">.......</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+<p>上述代码就是先把test.txt从工作区和暂存区中删除，然后提交，就从版本库中删除了</p>
+<h1 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title=".gitignore文件"></a>.gitignore文件</h1><p>.gitignore文件会忽略掉一些不应该加入到版本库中的文件</p>
+<p>.gitignore文件的使用方法 首先，在你的工作区新建一个名称为.gitignore的文件。 然后，把要忽略的文件名填进去，Git就会自动忽略这些文件。不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># dir 不需要提交的目录</span><br><span class="line">/node_modules</span><br><span class="line">​</span><br><span class="line"># file 不需要提交的文件</span><br><span class="line">config.ini</span><br><span class="line">​</span><br><span class="line"># log 不需要提交的任意包含后缀名为log的文件</span><br><span class="line">*.log</span><br><span class="line">​</span><br><span class="line"># Package Files 不需要提交的任意包含后缀名为jar的文件</span><br><span class="line">*.jar</span><br></pre></td></tr></table></figure>
+<p>.gitignore注释用’#’, *表示匹配0个或多个任意字符，所以上面的模式就是要忽略所有的xml文件,log文件和apk文件。</p>
+<p>在 .gitingore 文件中，每一行指定一个忽略规则，Git检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：<br>1、从命令行中读取可用的忽略规则<br>2、当前目录定义的规则<br>3、父级目录定义的规则，依次递推<br>4、$GIT_DIR&#x2F;info&#x2F;exclude 文件中定义的规则<br>5、core.excludesfile中定义的全局规则</p>
+<h1 id="github的使用"><a href="#github的使用" class="headerlink" title="github的使用"></a>github的使用</h1><p>使用github就是使本地仓库与远程仓库产生关联，这里就要使用ssh网址。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd //回到根目录</span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot; //创建ssh密钥，然后把公钥添加到github中</span><br><span class="line"></span><br><span class="line">- 添加完成后，就可以clone github上的远程仓库了</span><br><span class="line">git clone &quot;仓库地址&quot; //克隆完成后会在本地创建一个与远程仓库一样的文件夹</span><br><span class="line"></span><br><span class="line">git push //把本地仓库的修改推送到远程仓库</span><br><span class="line">git push -u origin master:main//把本地仓库的master分支和远程仓库的main分支关联起来</span><br><span class="line">git pull origin main//把别名为origin的远程仓库的main分支的修改拉取到本地仓库进行合并</span><br></pre></td></tr></table></figure>
+
+
+
       
     </div>
     <footer class="article-footer">

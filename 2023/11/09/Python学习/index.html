@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git学习, 三池丶的博客">
+    <meta name="keywords" content="Python学习, 三池丶的博客">
     <meta name="description" content="这是根据hexo建立的一个简单的静态博客，没有什么技术含量，此博客主要是用来记录本人的学习过程。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git学习 | 三池丶的博客</title>
+    <title>Python学习 | 三池丶的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git学习</h1>
+                    <h1 class="description center-align post-title">Python学习</h1>
                 </div>
             </div>
         </div>
@@ -474,101 +474,121 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="git的下载与初始配置"><a href="#git的下载与初始配置" class="headerlink" title="git的下载与初始配置"></a>git的下载与初始配置</h1><p>因为Git是分布式版本控制系统，所以每个分支都要有自己的名字和邮箱</p>
-<p><code>git config</code>：使用git命令<br><code>global</code>一个参数，使用这个参数后表示我这个分支所有的仓库都会使用这个配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Csan_chi&quot;</span><br><span class="line">$ git config --global user.email &quot;XXXXXX&quot;</span><br></pre></td></tr></table></figure>
-<p>上述代码就是代表我的所有仓库都使用Csan_chi这个名字，使用上述的邮箱</p>
-<p>可以使用 <code>git config --list</code>来查看所有的配置信息<br>当然也可以单独查看个别信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name </span><br></pre></td></tr></table></figure>
-<h1 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h1><p><strong>一般工作流程如下：</strong></p>
-<ol>
-<li>克隆Git资源作为工作目录；</li>
-<li>在克隆的资源上添加或修改文件；</li>
-<li>如果其他人更改，你可以更新资源；</li>
-<li>在提交前查看修改状态；</li>
-<li>提交修改；</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ol>
-<p><code>git --global credential.helper store</code>这个指令可以用来保存用户名和密码</p>
-<h1 id="创建git仓库"><a href="#创建git仓库" class="headerlink" title="创建git仓库"></a>创建git仓库</h1><p>版本库，简称Repo，可以把版本库理解为一个一个目录，这个目录里的所有文件都可以被git管理，每个文件的修改操作都可以被git跟踪，以便追踪历史和更改版本</p>
-<p>首先创建一个空目录<br>使用命令<code>mkdir &quot;dirname&quot;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">86@Sanchi-Artifact MINGW64 /</span><br><span class="line">$ mkdir learn-git</span><br><span class="line"></span><br><span class="line">86@Sanchi-Artifact MINGW64 /</span><br><span class="line">$ cd learn-git</span><br></pre></td></tr></table></figure>
-<p>然后使用<code>git init</code>就可以在这个新建的文件夹中创建一个仓库了，在这个仓库中会有一个.git的目录，.git目录就存放着git仓库的所有数据，</p>
-<p>这里还可以用<code>git init “文件名”</code>来创建仓库，这里创建的新仓库，会在空目录的里面</p>
-<p>需要注意的是，.git目录是一个隐藏的目录</p>
-<p>还可以使用<code>git clone</code>命令从github或gitee这种远程服务器来克隆一个已经存在的仓库</p>
-<h1 id="git的工作区域和文件状态"><a href="#git的工作区域和文件状态" class="headerlink" title="git的工作区域和文件状态"></a>git的工作区域和文件状态</h1><p>git的本地数据管理分为三个区域<br>工作区、暂存区和版本库</p>
+                <h2 id="初始配置和vscode插件"><a href="#初始配置和vscode插件" class="headerlink" title="初始配置和vscode插件"></a>初始配置和vscode插件</h2><ul>
+<li>初始配置</li>
+</ul>
+<p>先到官网下载python，然后注意安装时勾选上添加python到环境变量</p>
+<p>之后再命令行中输入python，若有版本号，则下载成功</p>
 <ul>
-<li><p>工作区（work directory）：<br>就是本地电脑上.git所在的目录</p>
+<li>vscode插件</li>
+</ul>
+<p>再vscode中下载python插件就可以在vscode中舒服的编辑python了，还有很多其他插件，以后的学习中可以学一下</p>
+<h2 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h2><ul>
+<li>保留字</li>
+</ul>
+<p>保留字即关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line">keyword.kwlist</span><br><span class="line">[<span class="string">&#x27;False&#x27;</span>, <span class="string">&#x27;None&#x27;</span>, <span class="string">&#x27;True&#x27;</span>, <span class="string">&#x27;and&#x27;</span>, <span class="string">&#x27;as&#x27;</span>, <span class="string">&#x27;assert&#x27;</span>, <span class="string">&#x27;break&#x27;</span>, <span class="string">&#x27;class&#x27;</span>, <span class="string">&#x27;continue&#x27;</span>, <span class="string">&#x27;def&#x27;</span>, <span class="string">&#x27;del&#x27;</span>, <span class="string">&#x27;elif&#x27;</span>, <span class="string">&#x27;else&#x27;</span>, <span class="string">&#x27;except&#x27;</span>, <span class="string">&#x27;finally&#x27;</span>, <span class="string">&#x27;for&#x27;</span>, <span class="string">&#x27;from&#x27;</span>, <span class="string">&#x27;global&#x27;</span>, <span class="string">&#x27;if&#x27;</span>, <span class="string">&#x27;import&#x27;</span>, <span class="string">&#x27;in&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;lambda&#x27;</span>, <span class="string">&#x27;nonlocal&#x27;</span>, <span class="string">&#x27;not&#x27;</span>, <span class="string">&#x27;or&#x27;</span>, <span class="string">&#x27;pass&#x27;</span>, <span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;return&#x27;</span>, <span class="string">&#x27;try&#x27;</span>, <span class="string">&#x27;while&#x27;</span>, <span class="string">&#x27;with&#x27;</span>, <span class="string">&#x27;yield&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注释</li>
+</ul>
+<p>Python中单行注释以 <strong>#</strong> 开头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个注释</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>多行注释可以用多个 <strong>#</strong> 号，还有 <strong>‘’’</strong> 和 **”””**：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 第一个注释</span></span><br><span class="line"><span class="comment"># 第二个注释</span></span><br><span class="line"> </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">第三注释</span></span><br><span class="line"><span class="string">第四注释</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">第五注释</span></span><br><span class="line"><span class="string">第六注释</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Hello, Python!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>行与缩进</li>
+</ul>
+<p>python最具特色的就是使用缩进来表示代码块，不需要使用大括号 <strong>{}</strong> 。</p>
+<p>缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数。实例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&quot;True&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&quot;False&quot;</span>)</span><br><span class="line">    	<span class="built_in">print</span> (<span class="string">&#x27;ock&#x27;</span>)</span><br><span class="line"><span class="comment"># 这里else会报错，因为首行缩进不同，不是一个代码块</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行语句</li>
+</ul>
+<p>Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠 *<em>*</em> 来实现多行语句，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">total = item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在 [], {}, 或 () 中的多行语句，不需要使用反斜杠 *<em>*</em></p>
+<ul>
+<li>数字类型</li>
+</ul>
+<p>python中数字有四种类型：整数、布尔型、浮点数和复数。</p>
+<hr>
+
+<ul>
+<li><p><strong>int</strong> (整数), 如 1, 只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</p>
 </li>
-<li><p>暂存区（staging area&#x2F;index）：<br>它像个缓存区域，临时保存即将上传到git仓库的改动</p>
+<li><p><strong>bool</strong> (布尔), 如 True。</p>
 </li>
-<li><p>版本库，也可以叫本地仓库：<br>就是刚才使用<code>git init</code>创建的仓库，包含完整的项目数据和版本信息，是git存储代码和版本信息的主要位置</p>
+<li><p><strong>float</strong> (浮点数), 如 1.23、3E-2</p>
+</li>
+<li><p><strong>complex</strong> (复数), 如 1 + 2j、 1.1 + 2.2j</p>
+</li>
+<li><p>字符串(String)</p>
 </li>
 </ul>
-<p>当你修改完工作区的文件后需要将它们添加到暂存区，然后再将暂存区的修改内容提交到本地仓库中</p>
-<p>这个过程中可以使用命令来查看，提交，修改内容，以确保内容的完整与正确</p>
-<p>做比喻的话，工作区就是一个生产车间，用来生产文件代码，暂存区就是一个运输工具，用来把工作区生产的内容存储到版本库中，而版本库就是一个仓库，用来存储工作区生产的内容。</p>
-<p>当代码完成了一个阶段想备份的时候，就可以把这个版本放到本地仓库中保存，这个保存的过程就是提交（commit）<br>但是如果文件修改一次就要提交一次比较麻烦，所以git提供可以先把修改后的文件存储到暂存区中，然后把暂存区中的文件进行统一提交</p>
-<p>相应的，git中的文件也存在几种状态：<br>分别是：</p>
+<hr>
+
 <ul>
-<li>未跟踪（Untrack）：新创建还没有被git管理的文件</li>
-<li>未修改（Unmodifiled）：已经被git管理但还没有修改过的文件</li>
-<li>已修改（Modifiled）：已经修改过但还没有添加到暂存区中的文件</li>
-<li>已暂存（Staged）：修改后并添加到暂存区中的文件</li>
+<li>Python 中单引号 <strong>‘</strong> 和双引号 <strong>“</strong> 使用完全相同。</li>
+<li>使用三引号(<strong>‘’’</strong> 或 <strong>“””</strong>)可以指定一个多行字符串。</li>
+<li>转义符 ****。</li>
+<li>反斜杠可以用来转义，使用 <strong>r</strong> 可以让反斜杠不发生转义。 如 <strong>r”this is a line with \n”</strong> 则 <strong>\n</strong> 会显示，并不是换行。</li>
+<li>按字面意义级联字符串，如 <strong>“this “ “is “ “string”</strong> 会被自动转换为 <strong>this is string</strong>。</li>
+<li>字符串可以用 <strong>+</strong> 运算符连接在一起，用 ***** 运算符重复。</li>
+<li>Python 中的字符串有两种索引方式，从左往右以 <strong>0</strong> 开始，从右往左以 <strong>-1</strong> 开始。</li>
+<li>Python 中的字符串不能改变。</li>
+<li>Python 没有单独的字符类型，一个字符就是长度为 1 的字符串。</li>
+<li>字符串的截取的语法格式如下：<strong>变量[头下标:尾下标:步长]</strong></li>
 </ul>
-<h1 id="添加和提交文件"><a href="#添加和提交文件" class="headerlink" title="添加和提交文件"></a>添加和提交文件</h1><p><code>git status</code>：查看仓库的状态<br><code>git add</code>：添加到暂存区<br><code>git commit</code>：提交</p>
-<p>git commit命令只会提交暂存区中的文件</p>
-<ul>
-<li><p>这里工作区有一个test.txt文件，使用<code>git status</code>命令查看仓库状态，红色就代表是未跟踪的状态。</p>
-</li>
-<li><p>使用<code>git add test.txt</code>把test.txt添加到暂存区中，文件就变成了绿色。</p>
-<p>  这里绿色上方 (use “git rm –cached <file>…” to unstage)是一个提示，意思是可以使用git rm –cached <file>这个命令来把刚才存入暂存区的文件取出</p>
-</li>
-<li><p><code>git add</code>命令可以使用通配符来一次性添加多个文件，<br>也可以直接将一整个文件夹的所有文件添加到暂存区中</p>
-<p>  例如：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add *.txt</span><br><span class="line">- 这样就是把所有以.txt为后缀的文件添加到暂存区中</span><br><span class="line">git add .</span><br><span class="line">- 这样就是把当前目录下的所有文件添加到暂存区中</span><br></pre></td></tr></table></figure></li>
-<li><p>git commit 命令将暂存区内容添加到本地仓库中<br>注意，使用<code>git commit</code>命令提交文件时要在后面加上-m的参数，就像这样</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;第一次提交&quot;</span><br></pre></td></tr></table></figure>
-<p>  这里-m后的信息就像是一个备注，会随着文件一同存入仓库中</p>
-</li>
-<li><p>可以使用<code>git log</code>命令来查看提交记录</p>
-</li>
-</ul>
-<p>这里commit后的字符串是提交id，每次的提交id都是不同的，然后提交记录里还会有作者名字和邮箱，提交的时间和注释等</p>
-<ul>
-<li><code>git log</code>命令后也可以添加一些参数，像–oneline，可以查看简洁的提交记录</li>
-</ul>
-<h1 id="回退版本（撤销命令）"><a href="#回退版本（撤销命令）" class="headerlink" title="回退版本（撤销命令）"></a>回退版本（撤销命令）</h1><p><code>git reset</code>命令用于回退版本，可以回退到之前某一个提交的状态</p>
-<p>这个命令有三个参数，参数后加上要回退的版本id就可以回退到之前的那个版本</p>
-<p>–soft参数会回退到之前的某一个版本，并且保留工作区和暂存区的所有修改内容<br>–hard参数会回退到之前的某一个版本，并且丢弃工作区和暂存区的所有修改内容<br>–mixed参数会回退到之前的某一个版本，并且保留工作区的所有修改内容但是丢弃暂存区的修改内容。</p>
-<p>mixed是git reset命令的默认参数</p>
-<h1 id="git-reflog命令"><a href="#git-reflog命令" class="headerlink" title="git reflog命令"></a>git reflog命令</h1><p>git reflog命令可以查看操作历史记录，然后可以通过获得历史记录的id使用回退版本还回退到某一版本</p>
-<p>前面黄色的字母就是id</p>
-<h1 id="git-diff命令"><a href="#git-diff命令" class="headerlink" title="git diff命令"></a>git diff命令</h1><p>git diff命令的作用</p>
-<p>如果不加参数，git diff命令默认比较工作区和暂存区的内容，会显示发生更改的文件和更改的具体信息</p>
-<p>命令下第一行是文件名，第二行是文件生成的哈希值，红色的是被删除的内容，绿色的是新添加的内容<br>上述显示的就是工作区与暂存区的对比，如果把工作区的内容添加到暂存区中就不会有这些内容了</p>
-<p>HEAD参数，比较工作区和版本库的关系<br><code>git diff HEAD</code></p>
-<p>–cached参数，比较暂存区和工作区的差异</p>
-<p>git diff还可以比较两个版本之间的差异<br>用法就是在命令后加上两个版本的id就行了</p>
-<p><code>git diff id1 id2</code></p>
-<p>HEAD可以代表最新版本的id，它指向分支提交的最新节点<br>HEAD<del>和HEAD^就表示最新版本的上一个版本<br>HEAD</del>2就表示最新版之前的两个版本</p>
-<p>可以在HEAD或id参数后添加文件名，这样就是比较单独文件的差异</p>
-<h1 id="git-rm（从版本库中删除文件）"><a href="#git-rm（从版本库中删除文件）" class="headerlink" title="git rm（从版本库中删除文件）"></a>git rm（从版本库中删除文件）</h1><p>从版本库中删除文件可以先把本地要删除的文件删除，然后再使用<code>git add .</code>，git commit命令提交到版本库，这样版本库中就没有该文件了，</p>
-<p>流程就是：<br>1.删除工作区的文件<br>2.执行<code>git add.</code><br>3.执行<code>git commit</code></p>
-<p>此外，还可以使用<code>git rm</code>命令直接删除工作区和暂存区中的文件，再执行提交命令就可以从版本库中删除文件</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm test.txt</span><br><span class="line">.......</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
-<p>上述代码就是先把test.txt从工作区和暂存区中删除，然后提交，就从版本库中删除了</p>
-<h1 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title=".gitignore文件"></a>.gitignore文件</h1><p>.gitignore文件会忽略掉一些不应该加入到版本库中的文件</p>
-<p>.gitignore文件的使用方法 首先，在你的工作区新建一个名称为.gitignore的文件。 然后，把要忽略的文件名填进去，Git就会自动忽略这些文件。不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># dir 不需要提交的目录</span><br><span class="line">/node_modules</span><br><span class="line">​</span><br><span class="line"># file 不需要提交的文件</span><br><span class="line">config.ini</span><br><span class="line">​</span><br><span class="line"># log 不需要提交的任意包含后缀名为log的文件</span><br><span class="line">*.log</span><br><span class="line">​</span><br><span class="line"># Package Files 不需要提交的任意包含后缀名为jar的文件</span><br><span class="line">*.jar</span><br></pre></td></tr></table></figure>
-<p>.gitignore注释用’#’, *表示匹配0个或多个任意字符，所以上面的模式就是要忽略所有的xml文件,log文件和apk文件。</p>
-<p>在 .gitingore 文件中，每一行指定一个忽略规则，Git检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：<br>1、从命令行中读取可用的忽略规则<br>2、当前目录定义的规则<br>3、父级目录定义的规则，依次递推<br>4、$GIT_DIR&#x2F;info&#x2F;exclude 文件中定义的规则<br>5、core.excludesfile中定义的全局规则</p>
-<h1 id="github的使用"><a href="#github的使用" class="headerlink" title="github的使用"></a>github的使用</h1><p>使用github就是使本地仓库与远程仓库产生关联，这里就要使用ssh网址。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd //回到根目录</span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot; //创建ssh密钥，然后把公钥添加到github中</span><br><span class="line"></span><br><span class="line">- 添加完成后，就可以clone github上的远程仓库了</span><br><span class="line">git clone &quot;仓库地址&quot; //克隆完成后会在本地创建一个与远程仓库一样的文件夹</span><br><span class="line"></span><br><span class="line">git push //把本地仓库的修改推送到远程仓库</span><br><span class="line">git push -u origin master:main//把本地仓库的master分支和远程仓库的main分支关联起来</span><br><span class="line">git pull origin main//把别名为origin的远程仓库的main分支的修改拉取到本地仓库进行合并</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span>=<span class="string">&#x27;newString&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>:<span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>:<span class="number">7</span>:<span class="number">2</span>])</span><br><span class="line"><span class="comment"># 这里的输出结果为</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">n</span></span><br><span class="line"><span class="string">newSt</span></span><br><span class="line"><span class="string">g</span></span><br><span class="line"><span class="string">nwti</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">这里的步长不理解的话可以多试两个结果</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 
+
+<ul>
+<li>空行</li>
+</ul>
+<p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。</p>
+<p>空行与代码缩进不同，空行并不是 Python 语法的一部分。书写时不插入空行，Python 解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。</p>
+<p><strong>记住：</strong>空行也是程序代码的一部分。</p>
+<ul>
+<li>等待用户输入</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">input</span>(<span class="string">&quot;\n\n按下 enter 键后退出。&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>以上代码中 ，<strong>\n\n</strong> 在结果输出前会输出两个新的空行。一旦用户按下 <strong>enter</strong> 键时，程序将退出。</p>
+<ul>
+<li>同一行显示多条语句</li>
+</ul>
+<p>Python 可以在同一行中使用多条语句，语句之间使用分号 <strong>;</strong> 分割，以下是一个简单的实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> sys; x = <span class="string">&#x27;runoob&#x27;</span>; sys.stdout.write(x + <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多个语句构成代码组</li>
+</ul>
+<p>缩进相同的一组语句构成一个代码块，我们称之代码组。</p>
+<p>像if、while、def和class这样的复合语句，首行以关键字开始，以冒号( : )结束，该行之后的一行或多行代码构成代码组。</p>
+<p>我们将首行及后面的代码组称为一个子句(clause)。</p>
+<p>如下实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expression : </span><br><span class="line">   suite</span><br><span class="line"><span class="keyword">elif</span> expression : </span><br><span class="line">   suite </span><br><span class="line"><span class="keyword">else</span> : </span><br><span class="line">   suite</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>print 输出</li>
+</ul>
+<p><strong>print</strong> 默认输出是换行的，如果要实现不换行需要在变量末尾加上 **end&#x3D;””**：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line">x=<span class="string">&quot;a&quot;</span></span><br><span class="line">y=<span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="comment"># 换行输出</span></span><br><span class="line"><span class="built_in">print</span>( x )</span><br><span class="line"><span class="built_in">print</span>( y )</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;---------&#x27;</span>)</span><br><span class="line"><span class="comment"># 不换行输出</span></span><br><span class="line"><span class="built_in">print</span>( x, end=<span class="string">&quot; &quot;</span> )</span><br><span class="line"><span class="built_in">print</span>( y, end=<span class="string">&quot; &quot;</span> )</span><br><span class="line"><span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>import 与 from…import</li>
+</ul>
+<p>在 python 用 <strong>import</strong> 或者 <strong>from…import</strong> 来导入相应的模块。</p>
+<p>将整个模块(somemodule)导入，格式为： <strong>import somemodule</strong></p>
+<p>从某个模块中导入某个函数,格式为： <strong>from somemodule import somefunction</strong></p>
+<p>从某个模块中导入多个函数,格式为： <strong>from somemodule import firstfunc, secondfunc, thirdfunc</strong></p>
+<p>将某个模块中的全部函数导入，格式为： <strong>from somemodule import *</strong></p>
 
                 
             </div>
@@ -585,7 +605,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">三池丶</a>
+                    <a href="/about" rel="external nofollow noreferrer">Csan-chi</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -595,7 +615,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://csan-chi.github.io/2023/11/09/git%E5%AD%A6%E4%B9%A0/">https://csan-chi.github.io/2023/11/09/git%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="https://csan-chi.github.io/2023/11/09/Python%E5%AD%A6%E4%B9%A0/">https://csan-chi.github.io/2023/11/09/Python%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -608,7 +628,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">三池丶</a>
+                    <a href="/about" target="_blank">Csan-chi</a>
                     !
                 </span>
             </div>
@@ -800,9 +820,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/11/09/Python%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
@@ -820,9 +841,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -831,6 +852,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -841,13 +863,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/11/08/hello-world/">
+                <a href="/2023/11/09/git%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="git学习">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">git学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -858,7 +880,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-09
                             </span>
                         <span class="publish-author">
                             
